@@ -1,0 +1,33 @@
+<div class="mx-4 my-4 row d-flex align-items-center justify-content-center h-100 w-50">
+    <div class="form-group">
+        <button type="button" class="btn btn-success " routerLink="/employees/updateEmployee">Add Employee</button>
+    </div>
+
+    <div class="form-group mt-4">
+        <div class="ml-4">
+            <div class="card-header">
+                Employees
+            </div>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let employee of employees" class="list-group-item">
+                    <span class="align-middle">
+                        {{employee.firstName }} {{employee.lastName}}
+                        <span class="d-flex justify-content-end">
+                            <button type="button-" class="btn btn-warning btn-sm mx-2"
+                                (click)="editEmployee(employee.id)">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm mx-2"
+                                (click)="deleteEmployee(employee.id)">Delete</button>
+
+                        </span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div *ngIf="successMessage !== ''   " class="alert alert-success d-flex justify-content-center my-4" role="alert">
+        {{successMessage}}
+    </div>
+
+
+</div>
